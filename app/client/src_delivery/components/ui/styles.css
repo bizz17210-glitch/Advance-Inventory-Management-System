@@ -1,0 +1,309 @@
+﻿/* Re-use CSS variables from your globals.css */
+/* These components rely on the CSS variables defined in your prototype */
+
+/* AlertStrip */
+.alert-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 10.5px;
+  margin-bottom: 12px;
+  border: 1px solid;
+}
+.alert-strip.info {
+  background: var(--blue-bg, #eff6ff);
+  border-color: #bfdbfe;
+  color: var(--blue, #2563eb);
+}
+.alert-strip.warn {
+  background: var(--yellow-bg, #fffbeb);
+  border-color: #fde68a;
+  color: var(--yellow, #d97706);
+}
+.alert-strip.danger {
+  background: var(--red-bg, #fef2f2);
+  border-color: #fecaca;
+  color: var(--red, #dc2626);
+}
+.alert-strip.success {
+  background: var(--green-bg, #f0fdf4);
+  border-color: #bbf7d0;
+  color: var(--green, #16a34a);
+}
+.alert-strip i {
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.alert-strip-content {
+  flex: 1;
+}
+.alert-strip-action {
+  margin-left: auto;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 9.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.badge.green {
+  background: var(--green-bg, #f0fdf4);
+  color: var(--green, #16a34a);
+}
+.badge.red {
+  background: var(--red-bg, #fef2f2);
+  color: var(--red, #dc2626);
+}
+.badge.yellow {
+  background: var(--yellow-bg, #fffbeb);
+  color: var(--yellow, #d97706);
+}
+.badge.blue {
+  background: var(--blue-bg, #eff6ff);
+  color: var(--blue, #2563eb);
+}
+.badge.gray {
+  background: var(--divider, #eef0f3);
+  color: var(--text-secondary, #6b7280);
+}
+.badge.orange {
+  background: #fff5ee;
+  color: var(--accent, #ff6a00);
+}
+.badge.purple {
+  background: var(--purple-bg, #f5f3ff);
+  color: var(--purple, #7c3aed);
+}
+.badge.teal {
+  background: var(--teal-bg, #f0fdfa);
+  color: var(--teal, #0d9488);
+}
+
+/* Card */
+.card {
+  background: var(--card, #ffffff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-card, 8px);
+  box-shadow: var(--shadow-card, 0 1px 2px rgba(0, 0, 0, 0.04));
+  margin-bottom: 14px;
+}
+.card-header {
+  padding: 11px 14px 9px;
+  border-bottom: 1px solid var(--divider, #eef0f3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary, #111827);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.card-title i {
+  font-size: 11px;
+  color: var(--text-muted, #9ca3af);
+}
+.card-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.card-body {
+  padding: 12px 14px;
+}
+
+/* Modal / Overlay */
+.backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 399;
+}
+.backdrop.open {
+  display: block;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 420px;
+  background: var(--card, #ffffff);
+  border-left: 1px solid var(--border, #e5e7eb);
+  z-index: 400;
+  display: none;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg, 0 4px 16px rgba(0, 0, 0, 0.1));
+}
+.overlay.open {
+  display: flex;
+}
+.overlay-header {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.overlay-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-primary, #111827);
+}
+.close-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: var(--card, #ffffff);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-muted, #9ca3af);
+}
+.close-btn:hover {
+  background: var(--bg, #f7f8fa);
+}
+.overlay-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 16px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-top: 1px solid var(--divider, #eef0f3);
+  font-size: 10.5px;
+  color: var(--text-muted, #9ca3af);
+}
+.pagination-info {
+  font-size: 10.5px;
+  color: var(--text-muted, #9ca3af);
+}
+.pag-controls {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.pag-btn {
+  min-width: 26px;
+  height: 26px;
+  padding: 0 5px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: var(--card, #ffffff);
+  border-radius: 5px;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--text-secondary, #6b7280);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font, "Plus Jakarta Sans", sans-serif);
+  transition: all 0.12s;
+}
+.pag-btn:hover:not(:disabled) {
+  background: var(--bg, #f7f8fa);
+  color: var(--text-primary, #111827);
+}
+.pag-btn.active {
+  background: var(--accent, #ff6a00);
+  border-color: var(--accent, #ff6a00);
+  color: #fff;
+}
+.pag-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.pag-btn.dots {
+  border: none;
+  background: transparent;
+  cursor: default;
+}
+
+/* Table */
+.table-wrap {
+  overflow-x: auto;
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table thead tr {
+  border-bottom: 1px solid var(--divider, #eef0f3);
+}
+.data-table thead th {
+  padding: 7px 11px;
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--text-muted, #9ca3af);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  background: #fafafa;
+  cursor: pointer;
+  user-select: none;
+}
+.data-table thead th.sortable:hover {
+  color: var(--text-primary, #111827);
+}
+.data-table thead th.sorted {
+  color: var(--accent, #ff6a00);
+}
+.sort-icon {
+  margin-left: 3px;
+  font-size: 8px;
+  opacity: 0.5;
+}
+.data-table thead th.sorted .sort-icon {
+  opacity: 1;
+  color: var(--accent, #ff6a00);
+}
+.data-table tbody tr {
+  border-bottom: 1px solid var(--divider, #eef0f3);
+  transition: background 0.1s;
+  cursor: pointer;
+}
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+.data-table tbody tr:hover {
+  background: #fafbfc;
+}
+.data-table tbody tr.clickable:hover {
+  background: #fafbfc;
+}
+.data-table tbody td {
+  padding: 7px 11px;
+  font-size: 11px;
+  color: var(--text-primary, #111827);
+  vertical-align: middle;
+}
+.data-table .empty-cell {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-muted, #9ca3af);
+}
+.row-checkbox {
+  accent-color: var(--accent, #ff6a00);
+}

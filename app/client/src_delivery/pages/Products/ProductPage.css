@@ -1,0 +1,362 @@
+﻿/* ═══════════════════════════════════════════════════════════
+   PRODUCT PAGE — ProductPage.css
+   Follows Zone In design system (Plus Jakarta Sans, CSS vars)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── SIDE PANEL ─────────────────────────────────────────── */
+.prod-detail-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  background: var(--card);
+  border-left: 1px solid var(--border);
+  z-index: 310;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.prod-detail-panel.open {
+  display: flex;
+}
+
+.prod-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 309;
+}
+
+.prod-backdrop.open {
+  display: block;
+}
+
+/* ── PANEL TABS ─────────────────────────────────────────── */
+.prod-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+
+.prod-tabs::-webkit-scrollbar {
+  height: 2px;
+}
+
+.prod-tab {
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+  user-select: none;
+}
+
+.prod-tab:hover {
+  color: var(--text-secondary);
+}
+
+.prod-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+
+.prod-tab-panel {
+  display: none;
+  padding: 12px 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.prod-tab-panel.active {
+  display: block;
+}
+
+/* ── STAR RATINGS ───────────────────────────────────────── */
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star {
+  color: #f59e0b;
+  font-size: 11px;
+}
+
+.star.empty {
+  color: var(--divider);
+}
+
+/* ── DROP ZONE ──────────────────────────────────────────── */
+.prod-drop-zone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  text-align: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.prod-drop-zone:hover {
+  border-color: var(--accent);
+  background: #fff5ee;
+}
+
+.prod-drop-zone i {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.prod-drop-zone-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.prod-drop-zone-title span {
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.prod-drop-zone-sub {
+  font-size: 11px;
+  margin-top: 6px;
+}
+
+/* ── DISTRIBUTION BARS ──────────────────────────────────── */
+.dist-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.dist-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.dist-label-wide {
+  width: 42px;
+}
+
+.dist-label-narrow {
+  width: 30px;
+}
+
+.dist-count {
+  width: 28px;
+  text-align: right;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ── CATEGORY BREAKDOWN ─────────────────────────────────── */
+.cat-breakdown-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.cat-breakdown-name {
+  width: 60px;
+  font-size: 11px;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cat-breakdown-count {
+  width: 24px;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ── SUPPLIER STATS ROW ─────────────────────────────────── */
+.sup-quick-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* ── CODE CHIP ──────────────────────────────────────────── */
+.code-chip {
+  font-size: 10.5px;
+  background: var(--bg);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+}
+
+/* ── IMPORT HISTORY LIST ────────────────────────────────── */
+.import-history-list {
+  padding: 0 16px;
+}
+
+/* ── SETTINGS CARDS ─────────────────────────────────────── */
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── ALERT CHECKBOXES ───────────────────────────────────── */
+.alert-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.alert-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ── PANEL AVATAR (large) ───────────────────────────────── */
+.prod-panel-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+/* ── PANEL DESCRIPTION BOX ──────────────────────────────── */
+.prod-panel-desc-box {
+  font-size: 11px;
+  color: var(--text-secondary);
+  padding: 8px;
+  background: var(--bg);
+  border-radius: var(--radius-input);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* ── STOCK LOG ITEMS ────────────────────────────────────── */
+.stock-log-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── VARIANT SIZE ICON ──────────────────────────────────── */
+.variant-size-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+/* ── SUPPLIER STAR RATING ───────────────────────────────── */
+.star-yellow {
+  color: #f59e0b;
+  font-size: 10px;
+}
+.star-empty-xs {
+  color: var(--divider);
+  font-size: 10px;
+}
+
+/* ── TOP SUPPLIER STARS ─────────────────────────────────── */
+.sup-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+/* ── COLOUR DOT ─────────────────────────────────────────── */
+.color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+/* ── PANEL ACTION BUTTONS ROW ───────────────────────────── */
+.prod-panel-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* ── IMPORT OPTIONS SECTION ─────────────────────────────── */
+.import-options-section {
+  margin-top: 14px;
+}
+
+/* ── CSV REFERENCE TABLE ────────────────────────────────── */
+.csv-ref-table code {
+  font-size: 10px;
+  background: var(--bg);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+}
+
+/* ── IMPORT ERROR TABLE ─────────────────────────────────── */
+.import-error-row td {
+  color: var(--red);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .prod-detail-panel {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .sup-quick-cards {
+    grid-template-columns: 1fr;
+  }
+}

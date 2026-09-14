@@ -1,0 +1,125 @@
+/* ═══════════════════════════════════════════════════════════
+   REPORTS PAGE — ReportsPage.css
+   Follows Zone In design system (Plus Jakarta Sans, CSS vars)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── REVENUE CHART BAR ──────────────────────────────────── */
+.rep-bar {
+  transition: background 0.15s;
+}
+
+.rep-tip {
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── EXPORT BUTTON SUCCESS STATE ────────────────────────── */
+.export-btn-success {
+  background: var(--green) !important;
+  border-color: var(--green) !important;
+}
+
+/* ── REPORT SECTION LABEL ───────────────────────────────── */
+.report-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── CHANNEL DOT ────────────────────────────────────────── */
+.channel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── P&L ROW ────────────────────────────────────────────── */
+.pl-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--divider);
+}
+
+.pl-row:last-child {
+  border-bottom: 2px solid var(--border);
+}
+
+.pl-row.bold .pl-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pl-row.bold .pl-val {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.pl-label {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.pl-val {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ── EXPORT CARD ICON BOX ───────────────────────────────── */
+.export-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── STAFF AVATAR ───────────────────────────────────────── */
+.staff-avatar-sm {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── REVENUE CHART CONTAINER ────────────────────────────── */
+.revenue-chart-container {
+  position: relative;
+  height: 160px;
+}
+
+/* ── STOCK HEALTH SEGMENT BAR ───────────────────────────── */
+.stock-health-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  gap: 1px;
+}
+
+/* ── MEDAL CELL ─────────────────────────────────────────── */
+.medal-cell {
+  width: 18px;
+  text-align: center;
+  font-size: 11px;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .revenue-chart-container {
+    height: 120px;
+  }
+}

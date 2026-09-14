@@ -1,0 +1,568 @@
+﻿/* ═══════════════════════════════════════════════════════════
+   StaffPage.css  –  Staff & Roles page styles
+   Follows the same design-token conventions as the rest of
+   the app (vars come from globals.css / the theme layer).
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Page Root ────────────────────────────────────────────── */
+#page-staff {
+  /* inherits layout from MainLayout; no extra wrapper needed */
+}
+
+/* ── Online Status Dots ───────────────────────────────────── */
+.online-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+.online-dot.online {
+  background: #22c55e;
+}
+.online-dot.offline {
+  background: #9ca3af;
+}
+.online-dot.suspended {
+  background: #f97316;
+}
+
+/* ── Progress Bars ────────────────────────────────────────── */
+.prog-bar {
+  height: 6px;
+  background: var(--divider);
+  border-radius: 99px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.prog-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+.prog-fill.green {
+  background: var(--green, #22c55e);
+}
+.prog-fill.yellow {
+  background: var(--yellow, #f59e0b);
+}
+.prog-fill.red {
+  background: var(--red, #ef4444);
+}
+
+/* ── Toggle Switch ────────────────────────────────────────── */
+.toggle-switch {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: var(--border);
+  border-radius: 18px;
+  transition: background 0.2s;
+}
+.toggle-slider::before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.toggle-switch input:checked + .toggle-slider {
+  background: var(--accent);
+}
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(14px);
+}
+
+/* ── Permissions Row ──────────────────────────────────────── */
+.perm-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--divider);
+}
+.perm-row:last-child {
+  border-bottom: none;
+}
+
+.perm-label {
+  font-size: 11.5px;
+  color: var(--text-primary);
+}
+.perm-label small {
+  display: block;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* ── Staff Side Panel ─────────────────────────────────────── */
+#staff-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 309;
+}
+#staff-backdrop.open {
+  display: block;
+}
+
+#staff-detail-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 420px;
+  background: var(--card);
+  border-left: 1px solid var(--border);
+  z-index: 310;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+#staff-detail-panel.open {
+  display: flex;
+}
+
+.staff-panel-header {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.staff-panel-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.staff-panel-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.staff-panel-close:hover {
+  background: var(--bg);
+}
+
+#staff-panel-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.staff-panel-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.staff-panel-tab {
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+}
+.staff-panel-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.staff-panel-tab:hover:not(.active) {
+  color: var(--text-primary);
+}
+
+.staff-panel-content {
+  display: none;
+  padding: 14px 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+.staff-panel-content.active {
+  display: block;
+}
+
+/* Staff panel form wrapper */
+.staff-panel-form {
+  padding: 14px 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ── Panel Profile Header ─────────────────────────────────── */
+.panel-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: var(--bg);
+  border-radius: var(--radius-card);
+}
+.panel-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.panel-profile-info {
+  flex: 1;
+  min-width: 0;
+}
+.panel-profile-name {
+  font-size: 15px;
+  font-weight: 800;
+}
+.panel-profile-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.panel-profile-status {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+.panel-score-box {
+  text-align: right;
+  flex-shrink: 0;
+}
+.panel-score-val {
+  font-size: 20px;
+  font-weight: 800;
+}
+.panel-score-lbl {
+  font-size: 9.5px;
+  color: var(--text-muted);
+}
+
+/* ── Panel Stats Row ──────────────────────────────────────── */
+.panel-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.panel-stat {
+  text-align: center;
+  padding: 8px;
+  background: var(--bg);
+  border-radius: var(--radius-input, 6px);
+}
+.panel-stat-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.panel-stat-lbl {
+  font-size: 9.5px;
+  color: var(--text-muted);
+}
+
+/* ── Panel Completion Bar ─────────────────────────────────── */
+.panel-completion {
+  margin-bottom: 14px;
+}
+.panel-completion .prog-bar {
+  height: 6px;
+  width: 100%;
+}
+.panel-completion-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ── Staff ID Code ────────────────────────────────────────── */
+.staff-id-code {
+  font-size: 10.5px;
+  background: var(--bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* ── Panel Section Label ──────────────────────────────────── */
+.panel-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Leaderboard ──────────────────────────────────────────── */
+.leaderboard-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--divider);
+}
+.leaderboard-row:last-child {
+  border-bottom: none;
+}
+.leaderboard-rank {
+  width: 20px;
+  text-align: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.leaderboard-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.leaderboard-info {
+  flex: 1;
+  min-width: 0;
+}
+.leaderboard-score {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── Department Performance Row ───────────────────────────── */
+.dept-perf-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.dept-perf-label {
+  width: 72px;
+  font-size: 11px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.dept-perf-val {
+  width: 36px;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Integration Card ─────────────────────────────────────── */
+.integration-card .card-body {
+  padding: 16px;
+}
+
+.int-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.int-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.int-fallback-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.int-info {
+  flex: 1;
+  min-width: 0;
+}
+.int-name {
+  font-size: 13px;
+  font-weight: 700;
+}
+.int-sub {
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+.int-desc {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+/* ── Notification Preferences ─────────────────────────────── */
+.notif-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.notif-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ── Info Banner ──────────────────────────────────────────── */
+/* (shared component – included here in case globals don't have it) */
+.info-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--blue-bg, #eff6ff);
+  border: 1px solid var(--blue, #3b82f6);
+  border-radius: var(--radius-card);
+  margin-bottom: 14px;
+  font-size: 12px;
+  color: var(--text-primary);
+}
+.info-banner > i {
+  color: var(--blue, #3b82f6);
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+.info-banner-text {
+  line-height: 1.55;
+}
+
+/* ── Section Divider ──────────────────────────────────────── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--divider);
+}
+
+/* ── Empty State ──────────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-muted);
+}
+.empty-state > i {
+  font-size: 28px;
+  margin-bottom: 10px;
+  opacity: 0.4;
+}
+.empty-state h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--text-primary);
+}
+.empty-state p {
+  font-size: 11.5px;
+  margin: 0;
+}
+
+/* ── Tooltip ──────────────────────────────────────────────── */
+.tooltip-wrap {
+  position: relative;
+  display: inline-flex;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.tooltip-icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--divider);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: var(--text-muted);
+  cursor: help;
+}
+.tooltip-box {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-primary);
+  color: var(--card);
+  font-size: 10.5px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 20;
+  pointer-events: none;
+}
+.tooltip-wrap:hover .tooltip-box {
+  display: block;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #staff-detail-panel {
+    width: 100%;
+    left: 0;
+  }
+}

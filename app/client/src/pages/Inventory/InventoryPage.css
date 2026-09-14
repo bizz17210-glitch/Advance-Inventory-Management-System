@@ -1,0 +1,72 @@
+/* ═══════════════════════════════════════════════════════════
+   INVENTORY PAGE — InventoryPage.css
+   Follows Zone In design system (Plus Jakarta Sans, CSS vars)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── ADJUSTMENT FORM ────────────────────────────────────── */
+.inv-adj-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── ALERT LIST ITEMS ───────────────────────────────────── */
+.inv-alert-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.inv-alert-item:last-child {
+  border-bottom: none;
+}
+
+/* ── HEALTH BADGE ROW ───────────────────────────────────── */
+.inv-health-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── MOVEMENT TYPE ICONS ────────────────────────────────── */
+.inv-move-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── SETTINGS SECTION ───────────────────────────────────── */
+.inv-settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── CODE CHIP ──────────────────────────────────────────── */
+.inv-code-chip {
+  font-size: 10.5px;
+  background: var(--bg);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+}
+
+/* ── STOCK HEALTH BAR ROW ───────────────────────────────── */
+.inv-stock-health {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .inv-settings-section {
+    grid-template-columns: 1fr;
+  }
+}

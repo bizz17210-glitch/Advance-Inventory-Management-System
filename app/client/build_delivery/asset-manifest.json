@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fbea9a63.css",
+    "main.js": "/static/js/main.5530001d.js",
+    "static/js/621.86bdb6db.chunk.js": "/static/js/621.86bdb6db.chunk.js",
+    "static/js/250.e72a4a50.chunk.js": "/static/js/250.e72a4a50.chunk.js",
+    "static/js/238.9dd43410.chunk.js": "/static/js/238.9dd43410.chunk.js",
+    "static/js/311.6a546a29.chunk.js": "/static/js/311.6a546a29.chunk.js",
+    "static/js/857.cb9d65a3.chunk.js": "/static/js/857.cb9d65a3.chunk.js",
+    "static/js/453.af205ec6.chunk.js": "/static/js/453.af205ec6.chunk.js",
+    "static/js/239.49f289cc.chunk.js": "/static/js/239.49f289cc.chunk.js",
+    "static/js/977.3a05d208.chunk.js": "/static/js/977.3a05d208.chunk.js",
+    "static/js/732.15969559.chunk.js": "/static/js/732.15969559.chunk.js",
+    "static/media/organization_role_image.jpg": "/static/media/organization_role_image.4d30036fbf01e261aca8.jpg",
+    "static/media/almost_there.jpg": "/static/media/almost_there.fe20c70cdad174de9273.jpg",
+    "static/media/signUp_Image.png": "/static/media/signUp_Image.6cf691e93e2df8f559b9.png",
+    "index.html": "/index.html",
+    "main.fbea9a63.css.map": "/static/css/main.fbea9a63.css.map",
+    "main.5530001d.js.map": "/static/js/main.5530001d.js.map",
+    "238.9dd43410.chunk.js.map": "/static/js/238.9dd43410.chunk.js.map",
+    "311.6a546a29.chunk.js.map": "/static/js/311.6a546a29.chunk.js.map",
+    "857.cb9d65a3.chunk.js.map": "/static/js/857.cb9d65a3.chunk.js.map",
+    "453.af205ec6.chunk.js.map": "/static/js/453.af205ec6.chunk.js.map",
+    "239.49f289cc.chunk.js.map": "/static/js/239.49f289cc.chunk.js.map",
+    "977.3a05d208.chunk.js.map": "/static/js/977.3a05d208.chunk.js.map",
+    "732.15969559.chunk.js.map": "/static/js/732.15969559.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fbea9a63.css",
+    "static/js/main.5530001d.js"
+  ]
+}

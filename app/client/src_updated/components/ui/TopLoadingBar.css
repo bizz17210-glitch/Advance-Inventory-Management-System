@@ -1,0 +1,141 @@
+﻿/* ── TOP LOADING BAR ──────────────────────────────────────── */
+
+#topLoadingBarWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#topLoadingBarWrap.active {
+  opacity: 1;
+}
+
+#loadingBar {
+  height: 100%;
+  background: var(--accent, #f97316);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.12s ease-out;
+  position: relative;
+  /* Glowing tip */
+}
+
+#loadingBar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6));
+  border-radius: 2px;
+}
+
+/* ── LOTTIE OVERLAY ───────────────────────────────────────── */
+
+#lottieLoadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(1px);
+  animation: lottie-fade-in 0.15s ease;
+}
+
+@keyframes lottie-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── SHIMMER SKELETON ─────────────────────────────────────── */
+@keyframes shimmer {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
+}
+
+.shimmer-row {
+  height: 36px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--border, #e5e7eb) 25%,
+    var(--bg, #f9fafb) 50%,
+    var(--border, #e5e7eb) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.2s infinite linear;
+  margin-bottom: 8px;
+}
+
+.shimmer-row.short {
+  width: 60%;
+}
+.shimmer-row.medium {
+  width: 80%;
+}
+.shimmer-row.tall {
+  height: 52px;
+}
+
+/* ── PAGE SHIMMER WRAPPER ─────────────────────────────────── */
+.page-shimmer {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.page-shimmer .shimmer-card {
+  background: var(--card, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-card, 10px);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.page-shimmer .shimmer-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.page-shimmer .shimmer-stat {
+  background: var(--card, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-card, 10px);
+  padding: 14px;
+  height: 80px;
+  background: linear-gradient(
+    90deg,
+    var(--border, #e5e7eb) 25%,
+    var(--bg, #f9fafb) 50%,
+    var(--border, #e5e7eb) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.2s infinite linear;
+}

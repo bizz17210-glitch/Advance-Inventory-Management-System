@@ -1,0 +1,273 @@
+/* ═══════════════════════════════════════════════════════════
+   SETTINGS PAGE — SettingsPage.css
+   Follows project design system (Plus Jakarta Sans, CSS vars)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── SETTINGS ROW ───────────────────────────────────────── */
+.stg-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--divider);
+  gap: 10px;
+}
+
+.stg-row:last-child {
+  border-bottom: none;
+}
+
+.stg-key {
+  font-size: 10.5px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.stg-desc {
+  font-size: 9.5px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+/* ── TOGGLE SWITCH ──────────────────────────────────────── */
+.toggle-switch {
+  position: relative;
+  width: 32px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.toggle-track {
+  position: absolute;
+  inset: 0;
+  background: var(--divider);
+  border-radius: 17px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toggle-track::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 13px;
+  height: 13px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-switch input:checked + .toggle-track {
+  background: var(--accent);
+}
+
+.toggle-switch input:checked + .toggle-track::after {
+  left: 17px;
+}
+
+/* ── SECTION DIVIDER ────────────────────────────────────── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 12px;
+}
+
+.section-divider span {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--divider);
+}
+
+/* ── FORM ROW TRIPLE ────────────────────────────────────── */
+.form-row.triple {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* ── INTEGRATION CARD ───────────────────────────────────── */
+.int-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.int-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.int-logo-icon {
+  font-size: 15px;
+}
+
+.int-card-title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.int-card-sub {
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+.int-card-desc {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+/* ── DANGER ZONE ────────────────────────────────────────── */
+.danger-item {
+  border: 1px solid var(--red-bg);
+  background: var(--red-bg);
+  border-radius: var(--radius-input);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.danger-item-title {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--red);
+}
+
+.danger-item-desc {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── IP WHITELIST PREVIEW ───────────────────────────────── */
+.ip-code {
+  font-size: 11px;
+  font-family: monospace;
+}
+
+/* ── BACKUP HISTORY LIST ────────────────────────────────── */
+.backup-list-wrap {
+  padding: 0 14px;
+}
+
+/* ── STAT VALUE SMALL ───────────────────────────────────── */
+.stat-value-sm {
+  font-size: 14px !important;
+}
+
+/* ── COURIER API CODE CHIP ──────────────────────────────── */
+.courier-endpoint-code {
+  font-size: 10px;
+  background: var(--bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* ── SKU PREVIEW BOX ────────────────────────────────────── */
+.sku-preview-box {
+  background: var(--bg);
+  border-radius: var(--radius-card);
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+
+.sku-preview-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+}
+
+.sku-preview-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: monospace;
+}
+
+/* ── ORDER ID PREVIEW BOX ───────────────────────────────── */
+.order-id-preview {
+  background: var(--bg);
+  border-radius: var(--radius-card);
+  padding: 14px;
+  border: 1px solid var(--border);
+}
+
+.order-id-preview-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+/* ── UPLOAD ZONE ────────────────────────────────────────── */
+.upload-zone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--bg);
+  transition: border-color 0.2s;
+}
+
+.upload-zone:hover {
+  border-color: var(--accent);
+}
+
+.upload-zone-icon {
+  font-size: 22px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.upload-zone-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.upload-zone-hint {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .form-row.triple {
+    grid-template-columns: 1fr;
+  }
+}
